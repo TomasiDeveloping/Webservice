@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Diese Datei wird vom Veröffentlichungs-/Paketierungsprozess Ihres Webprojekts verwendet. Sie können das Verhalten dieses Prozesses anpassen,
+indem Sie diese MSBuild-Datei bearbeiten. Weitere Informationen hierzu finden Sie unter https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAdRDo32GdKk2uQM9/EgvaEwAAAAACAAAAAAAQZgAAAAEAACAAAADe/wwkY/uOgZaFnyHfn2ad2IrUIKMUQITugvl/4uuiJQAAAAAOgAAAAAIAACAAAACNNSPqpFVMTd0w1y/OAM+OcMMA5nr5Ydq9cAtdqvK3k4AAAADCyq/CKs65w26owGgvXWYIAtdx25hJslrgR3si73Noft32DsBkz11GMLmn47e86L23LKHorMNiqMvqTYpFyLYrMHkrIdm+2KTsN5WMznLaC/j66fW6BjxEH3nojqVn7mfSQzt7sksZzp6GcpIomDIHN11HH3f5fROsbPezzhwHU0AAAABXSnIFJ9H3vwokP67o4eOmibLMaC3FmuZzshAOHj9HB9Jq2btSfhdmIh5dyfwWjNlulQxypnCgeAcaa8BqxzhQ</EncryptedPassword>
+    <History>True|2021-12-11T12:40:52.0256612Z;True|2021-09-21T15:31:46.4398495+02:00;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>data source=www07.servertown.ch%3binitial catalog=Webservice%3bpersist security info=True%3buser id=Tomasi%3bpassword=Kraftschlag28+</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>
