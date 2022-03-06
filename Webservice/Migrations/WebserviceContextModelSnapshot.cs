@@ -19,7 +19,7 @@ namespace Webservice.Migrations
                 .HasAnnotation("ProductVersion", "5.0.8")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Webservice.Models.Log", b =>
+            modelBuilder.Entity("Webservice.Models.LogAsync", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -128,7 +128,7 @@ namespace Webservice.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("Webservice.Models.Log", b =>
+            modelBuilder.Entity("Webservice.Models.LogAsync", b =>
                 {
                     b.HasOne("Webservice.Models.LogType", "LogType")
                         .WithMany()

@@ -1,10 +1,8 @@
-﻿using System.Threading.Tasks;
-using Webservice.Models;
+﻿using Webservice.Models;
 
-namespace Webservice.Interfaces
+namespace Webservice.Interfaces;
+
+public interface IUserService
 {
-    public interface IUserService
-    {
-        Task<User> ValidateCredentials(string username, string password);
-    }
+    Task<User> ValidateCredentials(string username, string password);
 }
