@@ -1,14 +1,13 @@
-﻿namespace Webservice.Helper
+﻿namespace Webservice.Helper;
+
+public class Constantes
 {
-    public class Constantes
+    public enum LogTypes
     {
-        public enum LogTypes
-        {
-            SUCCESS = 1,
-            ERROR = 2,
-            INSERT = 3,
-            UPDATE = 4,
-            DELETE = 5
-        }
+        SUCCESS = 1,
+        ERROR = 2,
+        INSERT = 3,
+        UPDATE = 4,
+        DELETE = 5
     }
 }

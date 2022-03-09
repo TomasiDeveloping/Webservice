@@ -1,10 +1,8 @@
-﻿using System.Threading.Tasks;
-using Webservice.Models;
+﻿using Webservice.Models;
 
-namespace Webservice.Interfaces
+namespace Webservice.Interfaces;
+
+public interface ILogService
 {
-    public interface ILogService
-    {
-        Task<bool> Log(Log log);
-    }
+    Task<bool> LogAsync(Log log);
 }

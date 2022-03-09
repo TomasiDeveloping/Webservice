@@ -1,8 +1,7 @@
-﻿namespace Webservice.Models
+﻿namespace Webservice.Models;
+
+public class LogType
 {
-    public class LogType
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-    }
+    public int Id { get; set; }
+    public string Name { get; set; }
 }

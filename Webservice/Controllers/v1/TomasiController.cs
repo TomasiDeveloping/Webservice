@@ -10,51 +10,18 @@ using Webservice.Services;
 namespace Webservice.Controllers.v1;
 
 [ApiVersion("1.0")]
-[ApiController]
 [Route("api/v{v:apiVersion}/[controller]")]
-[Authorize(Roles = "User")]
-public class GlasblaesereiEgliController : ControllerBase
+[ApiController]
+[Authorize(Roles = "Admin")]
+public class TomasiController : ControllerBase
 {
     private readonly EmailService _emailService;
     private readonly ILogService _logService;
 
-    public GlasblaesereiEgliController(IOptions<EmailSettings> options, ILogService logService)
+    public TomasiController(IOptions<EmailSettings> options, ILogService logService)
     {
         _emailService = new EmailService(options);
         _logService = logService;
-    }
-
-    [HttpGet("[action]")]
-    public async Task<ActionResult<bool>> SendTestMail()
-    {
-        const string receiverAddress = "info@glasblaeserei-egli.ch";
-        var subject = $"Funktionstest {DateTime.Now:dd.MMMM HH:mm}";
-        var message = EmailMessagesService.CreateTestMailMessage();
-        try
-        {
-            await _emailService.SendEmailAsync(receiverAddress, message, subject);
-            await _logService.LogAsync(new Log
-            {
-                Requester = User.Claims.First().Value,
-                RequestMethod = "GlasblaesereiEgli -> SendTestMail()",
-                RequestDate = DateTime.Now,
-                LogTypeId = (int) Constantes.LogTypes.SUCCESS
-            });
-            return Ok(true);
-        }
-        catch (Exception e)
-        {
-            await _logService.LogAsync(new Log
-            {
-                Requester = User.Claims.First().Value,
-                RequestMethod = "GlasblaesereiEgli -> SendTestMail()",
-                RequestDate = DateTime.Now,
-                LogTypeId = (int) Constantes.LogTypes.ERROR,
-                ErrorMessage = e.Message,
-                InnerException = e.InnerException?.ToString()
-            });
-            return BadRequest(e.Message);
-        }
     }
 
     [HttpPost]
