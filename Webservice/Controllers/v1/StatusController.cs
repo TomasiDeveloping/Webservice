@@ -6,7 +6,6 @@ namespace Webservice.Controllers.v1;
 [ApiVersion("1.0")]
 [Route("api/v{v:apiVersion}/[controller]")]
 [ApiController]
-[Authorize(Roles = "Admin")]
 public class StatusController : ControllerBase
 {
     [HttpGet]

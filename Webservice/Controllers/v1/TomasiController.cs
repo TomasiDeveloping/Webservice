@@ -18,10 +18,10 @@ public class TomasiController : ControllerBase
     private readonly EmailService _emailService;
     private readonly ILogService _logService;
 
-    public TomasiController(IOptions<EmailSettings> options, ILogService logService)
+    public TomasiController(IOptions<EmailSettings> options, ILogService logService, IConfiguration configuration)
     {
-        _emailService = new EmailService(options);
         _logService = logService;
+        _emailService = new EmailService(options, configuration);
     }
 
     [HttpPost]
@@ -31,8 +31,8 @@ public class TomasiController : ControllerBase
         {
             const string subject = "Kontaktformular Webseite";
             var message = EmailMessagesService.CreateContactFormMailMessage(mail);
-            var checkSend =
-                await _emailService.SendEmailAsync(HttpUtility.HtmlEncode(mail.ReceiverAddress), message, subject);
+            var checkSend = //await _emailService.SendEmailAsync(HttpUtility.HtmlEncode(mail.ReceiverAddress), message, subject);
+            await _emailService.SendMailWithSendGridAsync(HttpUtility.HtmlEncode(mail.ReceiverAddress), message, subject);
             if (!checkSend) return BadRequest("Email konnte nicht gesendet werden.");
             return Ok(checkSend);
         }
@@ -41,7 +41,7 @@ public class TomasiController : ControllerBase
             await _logService.LogAsync(new Log
             {
                 Requester = User.Claims.First().Value,
-                RequestMethod = "GlasblaesereiEgli -> Send Contact mail",
+                RequestMethod = "TomasiController -> Send Contact mail",
                 RequestDate = DateTime.Now,
                 LogTypeId = (int) Constantes.LogTypes.ERROR,
                 ErrorMessage = e.Message,
