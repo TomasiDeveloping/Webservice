@@ -1,0 +1,17 @@
+<Solution>
+  <Folder Name="/Projektmappenelemente/">
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="Webservice.API/Webservice.API.csproj" />
+    <Project Path="Webservice.Application/Webservice.Application.csproj" />
+    <Project Path="Webservice.Domain/Webservice.Domain.csproj" />
+    <Project Path="Webservice.GUI/Webservice.GUI.esproj">
+      <Build />
+      <Deploy />
+    </Project>
+    <Project Path="Webservice.Infrastructure/Webservice.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tests/" />
+</Solution>
