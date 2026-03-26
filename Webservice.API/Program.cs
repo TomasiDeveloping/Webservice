@@ -1,5 +1,6 @@
 using Serilog;
 using Webservice.API.Extensions;
+using Webservice.API.Middleware;
 using Webservice.Application;
 using Webservice.Application.Security;
 using Webservice.Domain;
@@ -32,6 +33,8 @@ try
 
     builder.Host.UseSerilog();
 
+    builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+
     var app = builder.Build();
 
     using (var scope = app.Services.CreateScope())
@@ -49,6 +52,9 @@ try
     app.UseMiddleware<LoggingMiddleware>();
     app.UseMiddleware<MetricsMiddleware>();
     app.UseMiddleware<TelemetryMiddleware>();
+
+    app.UseExceptionHandler();
+    app.UseStatusCodePages();
 
     app.UseHttpsRedirection();
 
