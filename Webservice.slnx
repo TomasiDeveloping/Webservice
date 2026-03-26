@@ -6,12 +6,13 @@
   <Folder Name="/src/">
     <Project Path="Webservice.API/Webservice.API.csproj" />
     <Project Path="Webservice.Application/Webservice.Application.csproj" />
-    <Project Path="Webservice.Domain/Webservice.Domain.csproj" />
-    <Project Path="Webservice.GUI/Webservice.GUI.esproj">
+    <Project Path="Webservice.Client/Webservice.Client.esproj">
       <Build />
       <Deploy />
     </Project>
+    <Project Path="Webservice.Domain/Webservice.Domain.csproj" />
     <Project Path="Webservice.Infrastructure/Webservice.Infrastructure.csproj" />
+    <Project Path="Webservice.Shared/Webservice.Shared.csproj" Id="c1d84c84-b9c2-4c07-ac6b-64be4ee4f0fe" />
   </Folder>
   <Folder Name="/tests/" />
 </Solution>
